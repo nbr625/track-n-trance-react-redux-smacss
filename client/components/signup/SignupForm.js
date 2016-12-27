@@ -36,11 +36,14 @@ class SignupForm extends React.Component {
   }
 
   onSubmit(e){
+    e.preventDefault();
+
     if(this.isValid()){
-      e.preventDefault();
-      this.setState({ errors: {}, isLoading: true })
+      this.setState({ errors: {}, isLoading: true });
       this.props.userSignupRequest(this.state).then(
-        () => {},
+        () => {
+          this.context.router.push('/');
+        },
         ({ data }) => this.setState({ errors: data, isLoading: false })
       );
     }
@@ -111,6 +114,10 @@ class SignupForm extends React.Component {
 
 SignupForm.propTypes = {
   userSignupRequest: React.PropTypes.func.isRequired
+}
+
+SignupForm.contextTypes = {
+  router: React.PropTypes.object.isRequired
 }
 
 export default SignupForm;

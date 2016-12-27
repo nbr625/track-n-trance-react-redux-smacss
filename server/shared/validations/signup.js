@@ -27,7 +27,7 @@ export default function validateInput(data) {
     errors.passwordConfirmation = 'Password must match';
   }
 
-  if (!data.timezpne) {
+  if (!data.timezone) {
     errors.timezone = 'Timezone is required';
   }
 
