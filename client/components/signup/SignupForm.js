@@ -15,11 +15,13 @@ class SignupForm extends React.Component {
       passwordConfirmation: '',
       timezone: '',
       errors: {},
-      isLoading: false
+      isLoading: false,
+      invalid: false
     }
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.checkUserExists = this.checkUserExists.bind(this);
   }
 
   onChange(e){
@@ -53,6 +55,25 @@ class SignupForm extends React.Component {
     }
   }
 
+  checkUserExists(e){
+    const field = e.target.name;
+    const val = e.target.value
+    if (val !== ''){
+      this.props.isUserExists(val).then(res => {
+        let errors = this.state.errors;
+        let invalid;
+        if (res.data.user){
+          errors[field] = 'There is already an user with such ' + field;
+          invalid = true;
+        } else {
+          errors[field] = '';
+          invalid = false;
+        }
+        this.setState({ errors, invalid });
+      });
+    }
+  }
+
   render(){
     const { errors } = this.state;
     const options = map(timezones, (val, key) =>
@@ -65,6 +86,7 @@ class SignupForm extends React.Component {
         <TextFieldGroup
           error={errors.username}
           onChange={this.onChange}
+          checkUserExists={this.checkUserExists}
           value={this.state.username}
           label="Username"
           field="username"
@@ -72,6 +94,7 @@ class SignupForm extends React.Component {
         <TextFieldGroup
           error={errors.email}
           onChange={this.onChange}
+          checkUserExists={this.checkUserExists}
           value={this.state.email}
           label="Email"
           field="email"
@@ -107,7 +130,7 @@ class SignupForm extends React.Component {
           {errors.timezone && <span className="help-block">{errors.timezone}</span>}
         </div>
         <div className="form-group">
-          <button disabled={this.state.isLoading} className="btn btn-primary btn-leg">
+          <button disabled={this.state.isLoading || this.state.invalid} className="btn btn-primary btn-leg">
             Sign up
           </button>
         </div>
@@ -118,7 +141,8 @@ class SignupForm extends React.Component {
 
 SignupForm.propTypes = {
   userSignupRequest: React.PropTypes.func.isRequired,
-  addFlashMessage: React.PropTypes.func.isRequired
+  addFlashMessage: React.PropTypes.func.isRequired,
+  isUserExists: React.PropTypes.func.isRequired
 }
 
 SignupForm.contextTypes = {
