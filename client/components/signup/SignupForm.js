@@ -16,7 +16,7 @@ class SignupForm extends React.Component {
       timezone: '',
       errors: {},
       isLoading: false,
-      invalid: false
+      inValid: false
     }
 
     this.onChange = this.onChange.bind(this);
@@ -130,8 +130,8 @@ class SignupForm extends React.Component {
           {errors.timezone && <span className="help-block">{errors.timezone}</span>}
         </div>
         <div className="form-group">
-          <button disabled={this.state.isLoading || this.state.invalid} className="btn btn-primary btn-leg">
-            Sign up
+          <button disabled={this.state.isLoading || this.state.invalid} className="btn btn-primary btn-lg">
+            Join
           </button>
         </div>
       </form>
