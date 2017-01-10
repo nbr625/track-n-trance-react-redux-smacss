@@ -111,7 +111,7 @@ class SignupForm extends React.Component {
           error={errors.passwordConfirmation}
           onChange={this.onChange}
           value={this.state.passwordConfirmation}
-          label="passwordConfirmation"
+          label="Password Confirmation"
           field="passwordConfirmation"
           type="password"
         />
