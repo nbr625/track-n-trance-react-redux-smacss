@@ -1,3 +1,6 @@
+export const GET_TODOS = "GET_TODOS";
+export const ADD_TODOS = "ADD_TODOS";
+export const DELETE_TODOS = "DELETE_TODOS";
+
 export const ADD_FLASH_MESSAGE = "ADD_FLASH_MESSAGE";
 export const DELETE_FLASH_MESSAGE = "DELETE_FLASH_MESSAGE";
-export const SET_CURRENT_USER = "SET_CURRENT_USER";
