@@ -5,7 +5,7 @@ import { onlyText } from '../../utils/common';
 
 class TaskList extends React.Component {
   render() {
-    const { flashMessage, tasks, user, deleteTask, tryToLoadAgain } = this.props;
+    const { flashMessage, tasks, user, deleteTask, updateTask, tryToLoadAgain } = this.props;
     let taskNames = onlyText(tasks);
 
     if (flashMessage.text !== 'Sorry, failed to load') {
@@ -16,6 +16,7 @@ class TaskList extends React.Component {
                               task={task}
                               tasks={taskNames}
                               user={user}
+                              updateTask={updateTask}
                               deleteTask={deleteTask}/> })}
         </div>
       );

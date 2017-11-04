@@ -1,4 +1,4 @@
-import { FETCH_TASKS_SUCCESS, SAVE_TASKS_SUCCESS, ADD_TASK, DELETE_TASK_SUCCESS } from '../actions/types';
+import { FETCH_TASKS_SUCCESS, SAVE_TASKS_SUCCESS, ADD_TASK, UPDATE_TASK, DELETE_TASK_SUCCESS } from '../actions/types';
 import { addFlashMessage } from './flashMessages';
 import axios from 'axios';
 
@@ -20,6 +20,13 @@ export function addTask(taskName) {
   return dispatch => {
     dispatch({ type: ADD_TASK, taskName });
     dispatch(addFlashMessage('Tasks added', 'success'))
+  }
+}
+
+export function updateTask(prevText, newText){
+  return dispatch => {
+    dispatch({ type: UPDATE_TASK, prevText, newText });
+    dispatch(addFlashMessage('Task was updated', 'success'))
   }
 }
 

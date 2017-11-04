@@ -29,7 +29,9 @@ class FlashMessage extends React.Component {
           baseClassName={styles}
           animationClassName="fade-in-and-out"
           animate={ id !== this.state.id }>
+        <div></div>
         {text}
+        <button onClick={this.props.deleteFlashMessage} className="close">X</button>
       </AnimateOnChange>
 
 

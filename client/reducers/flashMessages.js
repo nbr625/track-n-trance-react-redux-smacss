@@ -1,4 +1,4 @@
-import { ADD_FLASH_MESSAGE } from '../actions/types';
+import { ADD_FLASH_MESSAGE, DELETE_FLASH_MESSAGE } from '../actions/types';
 import shortid from 'shortid';
 
 export default (state = {}, action = {}) => {
@@ -10,7 +10,12 @@ export default (state = {}, action = {}) => {
         text: action.text,
         err: action.err || ''
       });
+      break;
 
+    case DELETE_FLASH_MESSAGE:
+      return Object.assign({}, state, {
+        status: 'deleted',
+      });
 
     default: return state;
   }

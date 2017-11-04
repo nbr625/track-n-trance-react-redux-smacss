@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchTasks, addTask, deleteTask, saveTasks } from '../../actions/todoActions';
-import { addFlashMessage } from '../../actions/flashMessages';
+import { fetchTasks, addTask, updateTask, deleteTask, saveTasks } from '../../actions/todoActions';
+import { addFlashMessage, deleteFlashMessage } from '../../actions/flashMessages';
 import { isUnique, onlyText } from '../../utils/common';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
@@ -56,20 +56,23 @@ class TodoIndexPage extends React.Component {
   }
 
   render() {
-    const {  deleteTask, tasks, flashMessage } = this.props;
+    const {  deleteTask, tasks, unsavedTasks, flashMessage, deleteFlashMessage, updateTask } = this.props;
     const { user, formValue } = this.state;
     return (
       <div id="todo-index">
         <SubHeader saveTasks={this.saveTasks}
                    handleChange={this.handleChange}
                    handleSubmit={this.handleSubmit}
+                   unsavedTasks={unsavedTasks}
                    flashMessage={flashMessage}
+                   deleteFlashMessage={deleteFlashMessage}
                    formValue={formValue} />
 
         <TaskList flashMessage={flashMessage}
                   tasks={tasks}
                   user={user}
                   deleteTask={deleteTask}
+                  updateTask={updateTask}
                   tryToLoadAgain={this.tryToLoadAgain}/>
       </div>
     );
@@ -80,14 +83,17 @@ TodoIndexPage.propTypes = {
   fetchTasks: PropTypes.func.isRequired,
   deleteTask: PropTypes.func.isRequired,
   addTask: PropTypes.func.isRequired,
-  addFlashMessage: PropTypes.func.isRequired
+  updateTask: PropTypes.func.isRequired,
+  addFlashMessage: PropTypes.func.isRequired,
+  deleteFlashMessage: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state){
   return {
     tasks: state.tasks.tasks,
+    unsavedTasks: state.tasks.unsavedTasks,
     flashMessage: state.flashMessage
   }
 }
 
-export default connect(mapStateToProps, { fetchTasks, deleteTask, addTask, saveTasks, addFlashMessage })(TodoIndexPage);
+export default connect(mapStateToProps, { fetchTasks, deleteTask, addTask, updateTask, saveTasks, addFlashMessage, deleteFlashMessage })(TodoIndexPage);

@@ -1,6 +1,6 @@
 .alert {
   display:flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 10px;
   width: 318px;
@@ -28,5 +28,16 @@
   background-color: #fff6f6;
   border-color: #a7263f;
   color: #a7263f;
+}
 
+.close {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  position:relative;
+  left: 8px;
+  font-size: 1em;
 }
