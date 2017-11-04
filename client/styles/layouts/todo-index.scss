@@ -1,0 +1,67 @@
+// TASK INDEX
+
+#todo-index {
+  margin-top: $page-vertical-padding;
+  padding-bottom: $page-vertical-padding;
+}
+
+#index-subheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 12px;
+}
+
+#index-title {
+  font-size: 40px;
+  font-weight: bold;
+  padding-left: $page-horizontal-padding;
+  color: $header-color
+}
+
+#task-list-container {
+  padding: 0 26px 26px 26px;
+}
+
+#btn-container {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: $page-horizontal-padding;
+}
+
+#load-err-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 154px;
+}
+
+#load-err-msg {
+  padding-top: 12px;
+  color: $cta-color;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.taskblock-icon {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 155px;
+  position: relative;
+}
+
+.taskblock-icon > p {
+  font-size: 1em;
+  position: absolute;
+  bottom: 100px;
+  right: 55px;
+}
+
+.fa-trash-o:before {
+  font-size: 2em;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}

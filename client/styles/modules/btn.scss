@@ -1,0 +1,36 @@
+.btn {
+  padding: 10px;
+  margin: 3px;
+  font-size: 1em;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  border: 0;
+  height: 40px;
+  width: 107px;
+}
+
+.subtle-btn {
+  background-color: $subtle-color;
+}
+
+.subtle-btn:hover {
+  background-color: $subtle-color-hover
+}
+
+.subtle-btn:active {
+  background-color: $subtle-color-active
+}
+
+.cta-btn {
+  background-color: $cta-color;
+}
+
+.cta-btn:hover {
+  background-color: $cta-color-hover;
+
+}
+
+.cta-btn:active {
+  background-color: $cta-color-active;
+}

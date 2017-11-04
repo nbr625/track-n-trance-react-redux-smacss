@@ -1,0 +1,9 @@
+.fa.reload-icon {
+  color: $cta-color;
+  font-size: 9em;
+}
+
+.reload-icon:hover {
+  transition: 0.4s;
+  transform: rotateZ(180deg);
+}

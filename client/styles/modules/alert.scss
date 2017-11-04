@@ -1,0 +1,32 @@
+.alert {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 10px;
+  width: 318px;
+  padding: 15px;
+  font-size: 1.1em;
+  border-radius: 5px;
+  font-weight: bold;
+  border: 0;
+  border-style: solid;
+  border-width: 2px;
+  margin-right: 10px;
+  opacity: 0;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
+
+.alert-success {
+  background-color: #f6fffb;
+  border-color: #66b995;
+  color: #66b995;
+}
+
+.alert-failure {
+  background-color: #fff6f6;
+  border-color: #a7263f;
+  color: #a7263f;
+
+}

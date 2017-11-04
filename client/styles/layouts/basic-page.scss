@@ -1,0 +1,22 @@
+// BASIC PAGE
+
+#header, #footer {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+#header {
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: $vertical-stoppers-height;
+  background-color: $header-color;
+}
+
+#footer {
+  bottom: 0;
+  left: 0;
+  height: $vertical-stoppers-height;
+}
