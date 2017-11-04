@@ -1,12 +1,13 @@
 import React from 'react';
-import FlashMessagesList from './flash/FlashMessagesList';
+import "../styles/app.scss";
 
 class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <FlashMessagesList />
+        <div id="header"></div>
         {this.props.children}
+        <div id="footer"></div>
       </div>
     );
   }

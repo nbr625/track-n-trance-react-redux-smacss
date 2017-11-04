@@ -1,14 +1,47 @@
-import { GET_TODOS, ADD_TODOS, DELETE_TODOS } from '../actions/types';
+import { FETCH_TASKS_SUCCESS, SAVE_TASKS_SUCCESS, ADD_TASK, DELETE_TASK_SUCCESS } from '../actions/types';
+import { addFlashMessage } from './flashMessages';
 import axios from 'axios';
 
-export function userSignupRequest(userData) {
+const url = "http://cfassignment.herokuapp.com"
+
+export function fetchTasks(userId) {
   return dispatch => {
-    return axios.post('/api/users', userData);
+    return axios.get(`${url}/${userId}/tasks`)
+      .then(res => res.data.tasks)
+      .then(tasks => dispatch({ type: FETCH_TASKS_SUCCESS, tasks }))
+      .then(
+        () => dispatch(addFlashMessage('Tasks were loaded', 'success')),
+        err => dispatch(addFlashMessage('Sorry, failed to load', 'failure', err))
+      );
   }
 }
 
-export function isUserExists(identifier) {
+export function addTask(taskName) {
   return dispatch => {
-    return axios.get('/api/users/' + identifier);
+    dispatch({ type: ADD_TASK, taskName });
+    dispatch(addFlashMessage('Tasks added', 'success'))
+  }
+}
+
+export function saveTasks(userId, tasks) {
+  return dispatch => {
+    return axios.post(`${url}/${userId}/tasks`, {tasks})
+      .then(res => res.data.tasks)
+      .then(newTasks => dispatch({ type: SAVE_TASKS_SUCCESS, newTasks }))
+      .then(
+        () => dispatch(addFlashMessage('Tasks saved', 'success')),
+        err => dispatch(addFlashMessage('Sorry could not save tasks', 'failure', err))
+      );
+  }
+}
+
+export function deleteTask(userId, tasks, deletedTaskName) {
+  return dispatch => {
+    return axios.post(`${url}/${userId}/tasks`, {tasks})
+      .then(() => dispatch({ type: DELETE_TASK_SUCCESS, deletedTaskName }))
+      .then(
+        () => dispatch(addFlashMessage('Task deleted', 'success')),
+        err => dispatch(addFlashMessage('Task was not deleted', 'failure', err))
+      );
   }
 }

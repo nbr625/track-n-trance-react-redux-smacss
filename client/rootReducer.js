@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import flashMessages from './reducers/flashMessages';
-import todo from './reducers/todo';
+import flashMessage from './reducers/flashMessages';
+import tasks from './reducers/tasks';
 
 export default combineReducers({
-  flashMessages,
-  todo
+  flashMessage,
+  tasks
 });
