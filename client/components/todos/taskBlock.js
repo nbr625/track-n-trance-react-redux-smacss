@@ -24,7 +24,6 @@ class TaskBlock extends React.Component {
   }
 
   update(){
-    debugger;
     let { task, updateTask } = this.props;
     let { formValue } = this.state;
     updateTask(task.text, formValue)
