@@ -1,12 +1,18 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route, IndexRoute, IndexRedirect } from 'react-router';
+
+import BookingPage from './components/bookings/bookingsPage';
+import DefaultModule from './components/bookings/defaultModule';
+import BookingDetails from './components/bookings/bookingDetails';
 
 import App from './components/App';
 
-import todoIndexPage from './components/todos/todoIndexPage';
-
 export default (
   <Route path="/" component={App}>
-    <IndexRoute component={todoIndexPage} />
+    <IndexRedirect to="/bookings" />
+    <Route path="/bookings" component={BookingPage}>
+      <IndexRoute component={DefaultModule} />
+      <Route path=":id" component={BookingDetails} />
+    </Route>
   </Route>
 )

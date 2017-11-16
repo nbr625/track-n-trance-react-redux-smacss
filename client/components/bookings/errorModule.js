@@ -1,7 +1,7 @@
 import React from 'react';
 import FlashMessage from '../flash/flashMessage'
 
-class ReloadModule extends React.Component {
+class ErrorModule extends React.Component {
   render() {
     const { tryToLoadAgain } = this.props;
     return (
@@ -13,4 +13,4 @@ class ReloadModule extends React.Component {
   }
 }
 
-export default ReloadModule;
+export default ErrorModule;

@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
 import flashMessage from './reducers/flashMessages';
-import tasks from './reducers/tasks';
+import search from './reducers/search';
+import bookings from './reducers/bookings';
 
 export default combineReducers({
   flashMessage,
-  tasks
+  search,
+  bookings
 });
