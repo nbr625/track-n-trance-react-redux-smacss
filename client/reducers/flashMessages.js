@@ -1,7 +1,10 @@
 import { ADD_FLASH_MESSAGE, DELETE_FLASH_MESSAGE } from '../actions/types';
 import shortid from 'shortid';
 
-export default (state = {}, action = {}) => {
+// Handles action calls by changing the redux store state
+// According to what actions are called.
+
+export default (state = { status: 'deleted' }, action = {}) => {
   switch (action.type) {
     case ADD_FLASH_MESSAGE:
       return Object.assign({}, state, {

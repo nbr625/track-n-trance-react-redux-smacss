@@ -1,11 +1,13 @@
 import React from 'react';
 import FlashMessage from '../flash/flashMessage'
 
+// Home Page banner
+
 class DefaultModule extends React.Component {
   render() {
     return (
-       <div id="load-err-container">
-          <div id="load-err-msg">Welcome Search for a crate</div>
+       <div id="default-msg-container" className="cover-picture">
+          <div>Welcome Search for a crate</div>
         </div>
     );
   }

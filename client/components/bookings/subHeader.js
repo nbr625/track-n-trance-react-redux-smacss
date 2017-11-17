@@ -1,6 +1,8 @@
 import React from 'react';
 import FlashMessage from '../flash/flashMessage'
 
+// Main NavBar, contains search field
+
 class SubHeader extends React.Component {
   render() {
     const { handleSubmit, handleChange, flashMessage, formValue, deleteFlashMessage } = this.props;

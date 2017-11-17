@@ -4,6 +4,9 @@ const defaultProps = {
   savedBookings: []
 }
 
+// Handles action calls by changing the redux store state
+// According to what actions are called.
+
 export default (state = defaultProps, action = {}) => {
   switch(action.type){
     case SAVE_BOOKING:

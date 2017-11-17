@@ -3,14 +3,14 @@
 	animation-name: fadeInOpacity;
 	animation-iteration-count: 1;
 	animation-timing-function: linear;
-	animation-duration: 7s;
+	animation-duration: 1.3s;
 }
 
 @keyframes fadeInOpacity {
 	0% {
 		opacity: 1;
 	}
-  90% {
+  50% {
     opacity: 1;
   }
 	100% {

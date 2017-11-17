@@ -11,29 +11,25 @@
   height: 100%;
   width:30%;
   padding: 5px;
-  background-color: $header-color;
+  background-color: $sidebar-color;
   color: white;
   padding: 10px;
 }
 
 #sh-title {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 2.5rem;
   text-align: center;
+  margin-top: 32px;
 }
+
 
 .saved-booking-field {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
   padding: 16px 0;
   font-size: 1.5em;
-
-}
-
-.bookingDetails {
-
+  cursor: pointer;
 
 }
 
@@ -67,20 +63,49 @@
 }
 
 #load-err-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 154px;
+  background: url(../images/error.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-#load-err-msg {
+#default-msg-container {
+  background: url(../images/crate.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.cover-picture {
+  padding-top: 30px;
+  width: 67%;
+  position: absolute;
+  right: 0;
+  top: 80px;
+  height: 118%;
+  width: 69%;
+}
+
+div.cover-picture > div {
   padding-top: 12px;
-  color: $cta-color;
+  color: $sidebar-color;
+  position: absolute;
   font-size: 2em;
-  font-weight: bold;
+  top: 40px;
+  font-family: $title-font;
+
 }
 
+div#search-history button {
+  position: absolute;
+  right: 13px;
+  width: 200px;
+  height: 50px;
+  font-size: 29px;
+  margin-top: 20px;
+}
 
 .fa-trash-o:before {
   font-size: 1.7em;

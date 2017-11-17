@@ -4,8 +4,14 @@ import { deleteSavedBooking, clearAllSavedBookings, setActiveBooking } from '../
 import { deleteFlashMessage } from '../../actions/flashMessages';
 import PropTypes from 'prop-types';
 import SubHeader from './subHeader';
-import SearchHistory from './searchHistory'
-import { browserHistory } from 'react-router'
+import SearchHistory from './searchHistory';
+import { browserHistory } from 'react-router';
+
+// Main Booking Page Template. In this implementations
+// we are only using this template, but on escalations
+// other Page components would be used.
+
+// Smart Component
 
 class BookingPage extends React.Component {
 
@@ -57,6 +63,7 @@ class BookingPage extends React.Component {
   }
 }
 
+// Verifies presence of this props
 BookingPage.propTypes = {
   deleteSavedBooking: PropTypes.func.isRequired,
   clearAllSavedBookings: PropTypes.func.isRequired,
@@ -70,4 +77,5 @@ function mapStateToProps(state){
   }
 }
 
+// Connects to redux state
 export default connect(mapStateToProps, { deleteSavedBooking, setActiveBooking, clearAllSavedBookings, deleteFlashMessage })(BookingPage);

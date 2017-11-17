@@ -8,6 +8,10 @@ import rootReducer from './rootReducer';
 
 import routes from './routes';
 
+// Initiates store, allows for chrome dev tools extension,
+// and sets thunk as main middleware. Thunk allow us to us
+// to return a function and call it within our actions
+
 const store = createStore(
   rootReducer,
   compose(
@@ -16,6 +20,7 @@ const store = createStore(
   )
 )
 
+// targets 'app' id sets application with store and router to that div.
 render(
   <Provider store={store}>
     <Router history={browserHistory} routes={routes}/>

@@ -19,11 +19,14 @@ class FlashMessage extends React.Component {
 
   render() {
     const { status, text, id } = this.props.message;
+    // classname module allow us to programatically
+    // set the className for our flashMessage
     let styles = classnames('alert', {
       'alert-success': status === 'success',
       'alert-failure': status === 'failure'
     });
-    let variable = id !== this.state.id
+    // AnimateOnChange allow us to trigger animations
+    // on new properties (normally this is not the case.)
     return (
       <AnimateOnChange
           baseClassName={styles}

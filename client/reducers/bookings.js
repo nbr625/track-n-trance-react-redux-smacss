@@ -5,6 +5,9 @@ const defaultProps = {
   error: false
 }
 
+// Handles action calls by changing the redux store state
+// According to what actions are called.
+
 export default (state = defaultProps, action = {}) => {
   switch(action.type){
     case SET_ACTIVE_BOOKING:

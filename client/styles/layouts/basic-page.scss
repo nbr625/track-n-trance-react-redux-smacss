@@ -13,6 +13,33 @@
   z-index: 1;
   height: $vertical-stoppers-height;
   background-color: $header-color;
+  display: flex;
+}
+
+div#header i {
+  color: white;
+  font-size: 4em;
+  padding: 6px;
+  margin-left: 32px;
+}
+
+div#header div {
+  color: white;
+  font-size: 3em;
+  padding: 6px;
+  margin-left: 32px;
+  font-family: $title-font
+}
+
+@media only screen and (max-width: 1700px) {
+  div#header div {
+    padding-top: 15px;
+    font-size: 2em;
+    margin-left: 18px;
+  }
+  div#header i {
+    font-size: 3em;
+  }
 }
 
 #footer {

@@ -1,14 +1,19 @@
 import React from 'react';
 import FlashMessage from '../flash/flashMessage'
 
+// Present if booking could not be located
+
 class ErrorModule extends React.Component {
+
+  componentDidMount(){
+      this.props.addFlashMessage('Could not find booking', 'failure')
+  }
+
   render() {
-    const { tryToLoadAgain } = this.props;
     return (
-       <div id="load-err-container">
-          <i onClick={tryToLoadAgain} className="fa fa-refresh reload-icon" aria-hidden="true"></i>
-          <div id="load-err-msg">Try Again?</div>
-        </div>
+       <div id="load-err-container" className="cover-picture">
+         <div>Sorry we could not find your booking :(</div>
+       </div>
     );
   }
 }

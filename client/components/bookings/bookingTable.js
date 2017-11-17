@@ -1,26 +1,35 @@
 import React from 'react';
 import FlashMessage from '../flash/flashMessage';
+import classnames from 'classnames';
 import { isEmpty } from '../../utils/common';
+
+// Organizes Booking object into comprehensive table
 
 class BookingTable extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      showUpdates: false
+      showUpdates: false,
+      initialRender: true
     };
     this.isEmpty = isEmpty;
     this.toggleUpdates = this.toggleUpdates.bind(this);
   }
 
+  // This allows for toggle update functionality
   toggleUpdates(){
     this.setState({ showUpdates: !this.state.showUpdates })
   }
 
-
-
   render() {
     let { booking_number, origin, destination, updates, containers } = this.props.activeBooking;
-    let { showUpdates } = this.state;
+    let { showUpdates, initialRender } = this.state;
+
+    // the classname module will help set the class programatically
+    let caretStyles = classnames('fa', {
+      'fa-caret-right': showUpdates === false,
+      'fa-caret-down': showUpdates === true
+    });
 
     return (
       <table id="booking-table">
@@ -48,9 +57,9 @@ class BookingTable extends React.Component {
             <td>{destination}</td>
           </tr>
         </tbody>
-        <tbody>
+        <tbody id="table-updates">
           <tr>
-            <td className="table-title" onClick={this.toggleUpdates}>{ showUpdates ? 'Hide Upates' : 'Show Updates' }</td>
+            <td className="table-title">Updates<span><i className={caretStyles} onClick={this.toggleUpdates} aria-hidden="true"></i></span></td>
           </tr>
         </tbody>
         { !showUpdates ? null : updates.map((update, i) => (

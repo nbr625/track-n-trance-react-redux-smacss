@@ -7,6 +7,8 @@ import BookingDetails from './components/bookings/bookingDetails';
 
 import App from './components/App';
 
+// Sets structure of routes for the whole application
+
 export default (
   <Route path="/" component={App}>
     <IndexRedirect to="/bookings" />

@@ -1,5 +1,9 @@
 import React from 'react';
 import FlashMessage from '../flash/flashMessage';
+import { browserHistory } from 'react-router'
+
+// Sidebar stores saved Bookings, allows user to delete
+// and navigate to the stored Booking.
 
 class SearchHistory extends React.Component {
   render() {
@@ -18,7 +22,10 @@ class SearchHistory extends React.Component {
           }) }
         </div>
 
-        <button id="clear-all-button" className="btn subtle-btn" onClick={clearAllSavedBookings}>Clear All</button>
+        { savedBookings.length > 0 ? (
+          <button id="clear-all-button" className="btn subtle-btn" onClick={clearAllSavedBookings}>Clear All</button>
+        ) : null }
+
       </div>
     );
   }

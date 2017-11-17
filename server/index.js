@@ -6,11 +6,13 @@ import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.dev';
+import favicon from 'serve-favicon';
 
 
 let app = express();
 
 app.use(bodyParser.json());
+app.use(favicon(__dirname + '/favicon.ico'));
 
 const compiler = webpack(webpackConfig);
 
